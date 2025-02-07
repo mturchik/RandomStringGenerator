@@ -11,8 +11,8 @@ permissions:
 env:
     program_project: RandomStringGenerator/RandomStringGenerator.csproj
     test_project: RandomStringGenerator.Tests/RandomStringGenerator.Tests.csproj
-    zip_file: RandomStringGenerator.zip
-    publish_dir: RandomStringGenerator/bin/Release/net9.0/publish
+    zip_file: RandomStringGenerator-win-x64.zip
+    publish_dir: RandomStringGenerator/bin/Release/net9.0/win-x64/publish
 
 jobs:
   Test:

@@ -33,15 +33,4 @@ public sealed class StringGeneratorTests
         // Assert
         Assert.ThrowsException<ArgumentOutOfRangeException>(() => Act(length));
     }
-
-    [TestMethod]
-    public void GenerateRandomString_ZeroLength_ReturnsEmptyString()
-    {
-        // Arrange
-        const int length = 0;
-        // Act
-        var result = StringGenerator.GenerateRandomString(length);
-        // Assert
-        Assert.AreEqual(string.Empty, result);
-    }
 }

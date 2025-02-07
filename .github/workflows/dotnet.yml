@@ -4,17 +4,19 @@ on:
   push:
     branches: [ "master" ]
   workflow_dispatch:
+  
+permissions:
+  contents: write
+
+env:
+    program_project: RandomStringGenerator/RandomStringGenerator.csproj
+    test_project: RandomStringGenerator.Tests/RandomStringGenerator.Tests.csproj
+    zip_file: RandomStringGenerator.zip
+    publish_dir: RandomStringGenerator/bin/Release/net9.0/publish
 
 jobs:
-  Release:
+  Test:
     runs-on: ubuntu-latest
-
-    env:
-        program_project: RandomStringGenerator/RandomStringGenerator.csproj
-        test_project: RandomStringGenerator.Tests/RandomStringGenerator.Tests.csproj
-        zip_file: RandomStringGenerator.zip
-        publish_dir: RandomStringGenerator/bin/Release/net9.0/publish
-
     steps:
     - uses: actions/checkout@v4
     
@@ -23,15 +25,22 @@ jobs:
       with:
         dotnet-version: 9.0.x
     
-    - name: Restore
-      run: dotnet restore
-      
     - name: Build
       run: dotnet build
     
     - name: Test
       run: dotnet test ${{ env.test_project }}
 
+  Release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
+    
     - name: Publish
       run: dotnet publish ${{ env.program_project }} -c Release -o ${{ env.publish_dir }}
       

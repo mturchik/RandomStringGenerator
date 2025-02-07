@@ -53,7 +53,7 @@ jobs:
           
     - uses: ncipollo/release-action@v1
       with:
-        name: Release - ${{ github.workflow }}
-        tag: ${{ github.sha }}
+        name: Release ${{ github.run_number }}
+        tag: ${{ github.run_id }}
         artifacts: ${{ env.publish_dir }}
         token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomStringGenerator", "RandomStringGenerator\RandomStringGenerator.csproj", "{A5BFDBCD-3A60-4F3F-88D8-87FBC800CCEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomStringGenerator.Tests", "RandomStringGenerator.Tests\RandomStringGenerator.Tests.csproj", "{FACA4B88-1F4B-4B47-950B-529387BB8D86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5BFDBCD-3A60-4F3F-88D8-87FBC800CCEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5BFDBCD-3A60-4F3F-88D8-87FBC800CCEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5BFDBCD-3A60-4F3F-88D8-87FBC800CCEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5BFDBCD-3A60-4F3F-88D8-87FBC800CCEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FACA4B88-1F4B-4B47-950B-529387BB8D86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FACA4B88-1F4B-4B47-950B-529387BB8D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FACA4B88-1F4B-4B47-950B-529387BB8D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FACA4B88-1F4B-4B47-950B-529387BB8D86}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

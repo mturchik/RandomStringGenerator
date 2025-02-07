@@ -9,6 +9,12 @@ jobs:
   Release:
     runs-on: ubuntu-latest
 
+    env:
+        program_project: RandomStringGenerator/RandomStringGenerator.csproj
+        test_project: RandomStringGenerator.Tests/RandomStringGenerator.Tests.csproj
+        zip_file: RandomStringGenerator.zip
+        publish_dir: RandomStringGenerator/bin/Release/net9.0/publish
+
     steps:
     - uses: actions/checkout@v4
     
@@ -21,24 +27,22 @@ jobs:
       run: dotnet restore
       
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build
     
     - name: Test
-      run: dotnet test RandomStringGenerator.Tests/RandomStringGenerator.Tests.csproj --no-build
+      run: dotnet test ${{ env.test_project }}
 
     - name: Publish
-      run: dotnet publish --no-build
+      run: dotnet publish ${{ env.program_project }} -c Release -o ${{ env.publish_dir }}
       
     - name: Create Archive
       uses: thedoctor0/zip-release@0.7.5
       with:
-        type: 'zip'
-        directory: 'RandomStringGenerator/bin/Release/net9.0/publish'
-        filename: 'RandomStringGenerator.zip'
-        exclusions: '*.git* /*node_modules/* .editorconfig'
+        directory: ${{ env.publish_dir }}
+        filename: ${{ env.zip_file }}
           
     - uses: ncipollo/release-action@v1
       with:
         name: Release ${{ github.ref }}
         tag: ${{ github.ref }}
-        artifacts: "RandomStringGenerator/bin/Release/net9.0/publish"
+        artifacts: ${{ env.publish_dir }}

@@ -45,4 +45,5 @@ jobs:
       with:
         name: Release ${{ github.ref }}
         tag: ${{ github.ref }}
-        artifacts: ${{ env.publish_dir }}/*
+        artifacts: ${{ env.publish_dir }}
+        token: ${{ secrets.GITHUB_TOKEN }}

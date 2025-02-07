@@ -55,5 +55,5 @@ jobs:
       with:
         name: Release ${{ github.run_number }}
         tag: ${{ github.run_id }}
-        artifacts: ${{ env.publish_dir }}
+        artifacts: ${{ env.publish_dir }}/${{ env.zip_file }}
         token: ${{ secrets.GITHUB_TOKEN }}

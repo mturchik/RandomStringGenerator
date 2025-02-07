@@ -1,4 +1,4 @@
-name: .NET Build/Test/Publish
+name: .NET Release
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  Release:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,14 +17,14 @@ jobs:
       with:
         dotnet-version: 9.0.x
     
-    - name: Restore dependencies
+    - name: Restore
       run: dotnet restore
       
     - name: Build
       run: dotnet build --no-restore
     
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test RandomStringGenerator.Tests/RandomStringGenerator.Tests.csproj --no-build --verbosity normal
 
     - name: Publish
       run: dotnet publish --no-build --verbosity normal
